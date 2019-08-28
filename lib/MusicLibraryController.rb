@@ -87,7 +87,7 @@ class MusicLibraryController
       my_song = gets.strip 
       
    
-       if is_valid?(my_song) && my_song.to_i <= Song.all.size  && my_song.to_i >= 1 
+       if is_valid?(my_song) 
         
         array = Song.all.sort_by{|song| song.name} 
    
@@ -98,7 +98,7 @@ class MusicLibraryController
   end
   
   def is_valid?(my_song) 
-    true if Integer(my_song) rescue false 
+    true if Integer(my_song) && my_song.to_i <= Song.all.size && my_song.to_i >= 1 rescue false 
   end 
   
   
