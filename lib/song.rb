@@ -27,4 +27,5 @@ class Song
     song.save
     song
   end
+  attr_reader :artist, :genre
 end
