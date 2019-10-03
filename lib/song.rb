@@ -6,9 +6,9 @@ class Song
   def initialize (name, artist = nil)
     @name = name 
     @artist = artist 
+    self.artist = artist if artist
   end 
-  
-  
+
 
   def self.all 
     @@all
@@ -28,4 +28,15 @@ class Song
     song 
   end 
 
+def artist=(artist)
+    if @artist == nil
+      @artist = artist
+    else
+      @artist = @artist
+    end
+    if self.artist != nil
+      @artist.add_song(self)
+    end
+    @artist
+  end
 end
