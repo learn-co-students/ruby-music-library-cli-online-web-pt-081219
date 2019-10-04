@@ -1,11 +1,9 @@
 class Genre 
-  attr_accessor :name, :genre  
+  attr_accessor :name
   @@all = []
   
-  def initialize (name, genre = nil)
+  def initialize (name)
     @name = name
-    @genre = genre
-    self.song = song if song 
     @songs = []
   end 
   
