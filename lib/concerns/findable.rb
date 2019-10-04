@@ -1,4 +1,5 @@
-module Concerns::Findable
+module 
+  Concerns::Findable
 
   def find_by_name(name)
     self.all.detect{|i| i.name == name}
@@ -8,4 +9,4 @@ module Concerns::Findable
     self.find_by_name(name) || self.create(name)
   end
 end
-  
+
