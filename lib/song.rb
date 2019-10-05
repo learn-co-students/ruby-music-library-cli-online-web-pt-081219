@@ -58,4 +58,10 @@ end
       genre = Genre.find_or_create_by_name(file[2])
       self.new(file[1], artist, genre)
     end 
+    
+    def self.create_from_filename(file)
+      self.new_from_filename(file).tap{|song|song.save}
   end 
+end
+
+  
