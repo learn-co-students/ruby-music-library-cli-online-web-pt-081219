@@ -1,5 +1,5 @@
 class Artist
-  
+  extend Concerns::Findable
   @@all = []
   
   attr_accessor :name, :songs, :genres
@@ -35,4 +35,7 @@ class Artist
     self.songs.map{|song| song.genre}.uniq
   end
   
+end
+
+module Concerns::Findable
 end
