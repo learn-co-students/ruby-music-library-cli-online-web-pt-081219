@@ -46,13 +46,13 @@ class Song
   end
   
   def self.new_from_filename(filename)
-    song_name = filename.split(" - ")[1]
-    song_artist = filename.split(" - ")[0]
-    song_genre = filename.split(" - ")[2].chomp(".mp3")
-    song = self.find_or_create_by_name(song_name)
-    song.artist = Artist.find_or_create_by_name(song_artist)
-    song.genre = Genre.find_or_create_by_name(song_genre)
-    song
+    files = filename.split(" - ")
+    artist = files[0]
+    name = files[1]
+    genre = files[2].chomp( ".mp3")
+    genre = Genre.find_or_create_by_name(genre)
+    artist = Artist.find_or_create_by_name(artist)
+    self.new(name,artist,genre)
   end
   
   def self.create_from_filename(filename)

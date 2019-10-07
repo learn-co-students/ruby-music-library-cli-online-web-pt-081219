@@ -1,6 +1,9 @@
 class MusicLibraryController
   
+  attr_accessor :path
+  
   def initialize(path = "./db/mp3s")
+    @path = path
     music_importer_object = MusicImporter.new(path)
     music_importer_object.import
   end
@@ -22,7 +25,30 @@ class MusicLibraryController
   end
   
   def list_songs
-    
+    counter = 1
+    sorted_list = Song.all.sort_by{|song| song.name}
+    sorted_list.each do |song| 
+      puts "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+      counter += 1
+    end
+  end
+  
+  def list_artists
+    counter = 1
+    sorted_list = Artist.all.sort_by{|artist| artist.name}
+    sorted_list.each do |artist|
+      puts "#{counter}. #{artist.name}"
+      counter += 1
+    end
+  end
+  
+  def list_genres
+    counter = 1
+    sorted_list = Genre.all.sort_by{|genre| genre.name}
+    sorted_list.each do |genre|
+      puts "#{counter}. #{genre.name}"
+      counter += 1
+    end
   end
   
 end
