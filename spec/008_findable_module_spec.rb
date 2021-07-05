@@ -70,3 +70,6 @@ describe "Concerns::Findable" do
     end
   end
 end
+
+
+
